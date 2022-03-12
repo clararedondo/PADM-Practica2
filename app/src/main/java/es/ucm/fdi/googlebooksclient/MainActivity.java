@@ -12,8 +12,8 @@ import android.widget.RadioGroup;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int BOOK_LOADER_ID = 0; //seguramente no sea 0
-    private BookLoaderCallbacks bookLoaderCallbacks = new BookLoaderCallbacks();
+    private static final int BOOK_LOADER_ID = 0;
+    private BookLoaderCallbacks bookLoaderCallbacks = new BookLoaderCallbacks(this);
 
     private static TextInputEditText bookAuthors;
     private static TextInputEditText bookTitle;
