@@ -3,8 +3,6 @@ package es.ucm.fdi.googlebooksclient;
 import android.content.Context;
 import android.net.Uri;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.loader.content.AsyncTaskLoader;
 
 import java.io.BufferedReader;
@@ -23,13 +21,12 @@ public class BookLoader extends AsyncTaskLoader<List<BookInfo>> {
     private String queryString;
     private String printType;
 
-    public BookLoader(@NonNull Context context, String queryString, String printType) {
+    public BookLoader(Context context, String queryString, String printType) {
         super(context);
         this.queryString = queryString;
         this.printType = printType;
     }
 
-    @Nullable
     @Override
     public List<BookInfo> loadInBackground() {
         return getBookInfoJson(this.queryString, this.printType);
@@ -40,10 +37,10 @@ public class BookLoader extends AsyncTaskLoader<List<BookInfo>> {
     }
 
     public List<BookInfo> getBookInfoJson(String queryString, String printType) {
-        String contentAsString;
         Uri builtURI = Uri.parse(BASE_URL).buildUpon()
                 .appendQueryParameter(QUERY_PARAM, queryString)
                 .appendQueryParameter(PRINT_TYPE, printType)
+                .appendQueryParameter("maxResults", "40")
                 .build();
 
         HttpURLConnection conn = null;

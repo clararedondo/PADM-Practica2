@@ -15,6 +15,18 @@ public class BookInfo {
     private String authors;
     private URL infoLink;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public String getInfoLink() {
+        return infoLink.toString();
+    }
+
     public BookInfo(String title, String authors, URL infoLink) {
         this.title = title;
         this.authors = authors;
@@ -37,7 +49,7 @@ public class BookInfo {
             }
             ret_list.add(new BookInfo(book.getJSONObject("volumeInfo").getString("title"),
                     authors,
-                    new URL(book.getString("selfLink"))));
+                    new URL(book.getJSONObject("volumeInfo").getString("previewLink"))));
         i++;
         };
         return ret_list;
