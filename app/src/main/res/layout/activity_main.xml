@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A8D4E8"
     tools:context=".MainActivity"
     tools:visibility="visible">
 
@@ -20,7 +21,7 @@
         android:onClick="searchBooks"
         android:text="SEARCH BOOKS"
         android:textColor="#000000"
-        app:backgroundTint="#BDBDBD"
+        app:backgroundTint="#4592B5"
         app:iconTint="#BDBDBD"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,9 +37,12 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-light"
         android:text="Book search"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display4"
         android:textSize="48sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textInputEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.666"
@@ -100,7 +104,8 @@
             android:layout_width="63dp"
             android:layout_height="51dp"
             android:text="all"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:buttonTint="#FF9800" />
 
         <RadioButton
             android:id="@+id/books"
@@ -111,7 +116,8 @@
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
             android:text="books"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:buttonTint="#FF9800" />
 
         <RadioButton
             android:id="@+id/magazines"
@@ -119,7 +125,8 @@
             android:layout_height="53dp"
             android:layout_weight="1"
             android:text="magazines"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:buttonTint="#FF9800" />
 
     </RadioGroup>
 
