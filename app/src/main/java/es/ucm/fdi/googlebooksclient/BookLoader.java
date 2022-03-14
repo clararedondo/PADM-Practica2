@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookLoader extends AsyncTaskLoader<List<BookInfo>> {
@@ -56,11 +57,13 @@ public class BookLoader extends AsyncTaskLoader<List<BookInfo>> {
 
             conn.connect();
             int response = conn.getResponseCode();
-
+            if (response != 200) {
+                return new ArrayList<BookInfo>();
+            }
             is = conn.getInputStream();
             return BookInfo.fromJsonResponse(convertIsToString(is));
         } catch (Exception e) {
-            return null;
+            return new ArrayList<BookInfo>();
         } finally {
             conn.disconnect();
             if (is != null) {

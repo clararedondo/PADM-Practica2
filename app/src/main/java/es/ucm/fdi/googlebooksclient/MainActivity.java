@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.resultText.setText("Loading...");
         String queryString1 = String.valueOf(bookAuthors.getText().toString());
         String queryString2 = String.valueOf(bookTitle.getText().toString());
-        String queryString = queryString1 + " " + queryString2;
+        String queryString = (queryString1 + " " + queryString2).trim();
 
         String printType;
         switch (radioGroupSelection.getCheckedRadioButtonId()) {
